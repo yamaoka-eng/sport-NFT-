@@ -1,0 +1,129 @@
+.message { 
+  @apply w-72 min-h-[4rem] bg-white m-3 border shadow-sm drop-shadow-lg cursor-pointer rounded-md text-gray-500 flex flex-col overflow-hidden items-center justify-center transition-all delay-[600ms] duration-[400ms] relative;
+  animation: slide-in 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}
+
+.out {
+  animation: slide-out 0.6s cubic-bezier(0.4, 0, 1, 1) both
+}
+
+.outHeight {
+  @apply h-0 min-h-0;
+}
+
+.exit {
+  @apply absolute top-[0.2rem] right-3 hover:text-gray-800 hover:scale-110 transition-all
+}
+
+.content {
+  @apply flex w-full px-3 items-center text-xl
+}
+
+.msg {
+  @apply px-2 text-sm truncate
+}
+
+.success {
+  @apply text-green-400
+}
+
+.error {
+  @apply text-red-600
+}
+
+.info {
+  @apply text-orange-500
+}
+
+.success-progress {
+  @apply bg-green-400
+}
+
+.error-progress {
+  @apply bg-red-600
+}
+
+.info-progress {
+  @apply bg-orange-500
+}
+
+[class*="progress"] {
+  @apply absolute w-full h-[0.34rem] bottom-0 left-0;
+  animation: progress-ani 5s forwards;
+}
+
+@keyframes slide-in {
+  0% {
+    -webkit-transform: translateX(600px);
+            transform: translateX(600px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  38% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  55% {
+    -webkit-transform: translateX(68px);
+            transform: translateX(68px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  72% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  81% {
+    -webkit-transform: translateX(32px);
+            transform: translateX(32px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  90% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  95% {
+    -webkit-transform: translateX(8px);
+            transform: translateX(8px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateX(-0.5rem);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(-1.5rem);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+}
+
+@keyframes progress-ani {
+  from {
+    width: 100%;
+  } to {
+    width: 0;
+  }
+}

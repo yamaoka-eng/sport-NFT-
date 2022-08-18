@@ -1,0 +1,145 @@
+$color-blue: #3b82f6;
+$color-pink: #ec4899;
+$color-Indigo: #3730a3;
+$color-Violet: #5b21b6;
+
+.head {
+  @apply w-full h-[100vh] p-8 bg-cover flex mb-[-10.5vh] relative overflow-hidden;
+  background: linear-gradient(to right bottom, rgba($color-pink,1), rgba($color-blue,1));
+  background-size: cover;
+  background-position: 50% 50%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: all 1s ease-out;
+  .title {
+    @apply relative mb-[3rem];
+    &::before {
+      @apply content-[''] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[10rem] h-[10rem];
+      background: url(/src/assets/三角.png);
+      background-size: contain;
+      animation: vibrate 1s infinite;
+    }
+  }
+  .info {
+    @apply tracking-widest md:tracking-[1rem] text-white uppercase py-1 mb-4 select-none;
+    backface-visibility: hidden;
+    animation: text-slide-in-left 1s ease-out;
+  }
+  .checkbox {
+    @apply absolute hidden;
+  }
+  .bgVido {
+    @apply w-full h-full absolute;
+    &ContentVideo {
+      @apply absolute left-0 top-0 w-full h-full;
+      object-fit: cover;
+    }
+    &ContentImage{
+      @apply absolute w-full h-full top-0 left-0;
+      background: url(/src/assets/cyberpunk-00.png) no-repeat;
+      background-size: cover;
+      background-position: 50% 50%;
+    }
+  }
+  .scaleBg {
+    @apply h-full w-full rounded-full absolute top-1/2 -translate-y-[43%] scale-[0.05] opacity-0 z-[3];
+    background: radial-gradient(rgba($color-Indigo, 1),rgba($color-Violet, 1));
+    background-size: cover;
+    visibility: hidden;
+    transition: all .8s cubic-bezier(0.88, -0.02, 0.17, 1.04);
+  }
+  .containerBg {
+    @apply absolute w-0 h-full z-[4] opacity-0;
+    background: url(/src/assets/GenesisNFT-01.png) no-repeat;
+    background-size: cover;
+    transition: all .8s cubic-bezier(0.88, -0.02, 0.17, 1.04);
+    background-position: 0 75%;
+  }
+  .musicContainer {
+    @apply absolute top-0 left-0 w-0 h-full z-10 opacity-0;
+    transition: all .8s cubic-bezier(0.88, -0.02, 0.17, 1.04);
+    .back {
+      @apply text-white font-extralight text-2xl flex items-center absolute top-2 right-2 cursor-pointer
+    }
+  }
+  .checkbox:checked ~ .scaleBg {
+    @apply scale-[2] opacity-100;
+    visibility: visible;
+  }
+  .checkbox:checked ~ .musicContainer {
+    @apply w-full opacity-100;
+  }
+  .checkbox:checked ~ .containerBg {
+    @apply w-full opacity-80;
+  }
+}
+
+.scaleBtn {
+  @apply bg-white py-2 px-4 rounded-2xl transition-all duration-300 cursor-pointer drop-shadow-sm tracking-wider relative overflow-visible text-xl select-none font-sans font-semibold;
+  animation: btn-slide-in-bottom 0.5s 0.7s backwards;
+  backface-visibility: hidden;
+  > span {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#ff394f] to-[#ffcb27]
+  }
+  &:hover {
+    @apply -translate-y-[3px] drop-shadow-2xl;
+  }
+  &:active {
+    @apply -translate-y-[1px] drop-shadow-xl;
+  }
+  &::after {
+    content: '';
+    @apply w-full h-full bg-inherit rounded-2xl z-[-1] transition-all duration-300 absolute top-0 left-0
+  }
+  &:hover::after {
+    @apply scale-x-150 scale-y-125 opacity-0
+  }
+}
+
+@keyframes text-slide-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  } 80% {
+    transform: translateX(1rem);
+  } 100% {
+    transform: translateX(0);
+    opacity: 100;
+  }
+}
+
+@keyframes text-slide-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  } 80% {
+    transform: translateX(-1rem);
+  } 100% {
+    transform: translateX(0);
+    opacity: 100;
+  }
+}
+
+@keyframes btn-slide-in-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(2rem);
+  } 100% {
+    transform: translateY(0);
+    opacity: 100;
+  }
+}
+
+@keyframes vibrate {
+  10%{top:-.4px;left:-1.1px}
+  20%{top:.4px;left:-.2px}
+  30%{left:.5px}
+  40%{top:-.3px;left:-.7px}
+  50%{left:.2px}
+  60%{top:1.8px;left:-1.2px}
+  70%{top:-1px;left:.1px}
+  80%{top:-.4px;left:-.9px}
+  90%{left:1.2px}
+  to{left:-1.2px}
+}

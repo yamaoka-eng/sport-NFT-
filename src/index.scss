@@ -1,0 +1,41 @@
+* {
+  @apply m-0 p-0 box-border leading-relaxed tracking-[0.05rem];
+  scroll-behavior: smooth;
+}
+
+html {
+  @apply w-full h-full text-gray-100 scroll-pt-[70px] md:scroll-pt-[85px] pt-[64px] md:pt-[80px];
+  background-color: #fff;
+  // background-image: 
+  // radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+  // radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+  font-family: "Lato", ui-sans-serif;
+  background-attachment:fixed;
+  /* 解决移动端点击出现篮筐 */
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+#toastify {
+  position: fixed;
+  top: 88px;
+  right: 0;
+  bottom: auto;
+  z-index: 9999;
+  transition: height 0.5s;
+}
+
+.toast {
+
+}
+
+.btn {
+  @apply px-4 py-2 rounded-md text-white text-sm font-semibold cursor-pointer select-none transition-all duration-500;
+  &:hover {
+    @apply opacity-40;
+  }
+}
+
+/* import tailwind css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,0 +1,9 @@
+.header {
+  @apply flex justify-between items-center bg-white md:py-4 py-2 mx-auto max-w-[1300px] px-2
+}
+
+.UlHidden {
+  @apply opacity-0;
+  visibility: hidden;
+  top: 1rem !important;
+}

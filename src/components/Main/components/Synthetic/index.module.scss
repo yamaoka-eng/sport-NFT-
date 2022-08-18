@@ -1,0 +1,64 @@
+$color-purple​: #93c5fd;
+$color-pink: #1e40af;
+
+.synthic {
+  @apply w-full py-[10vh]  md:py-[15vh] bg-cover overflow-visible relative items-center mb-[-10vh] mt-[-10vh] md:mb-[-15vh] md:mt-[-15vh] z-20 flex flex-col;
+  background: linear-gradient(to right bottom, rgba($color-pink,0.2), rgba($color-purple​,0.2)),
+              url(/src/assets/cyberpunk-01.png) no-repeat;
+  background-size: cover;
+  transition: all 1s ease-out;
+  transform-origin: left;
+  clip-path: polygon(0 10vh, 100% 0, 100% 100%, 0 calc(100% - 10vh));
+  @media (min-width: 768px) {
+    clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 calc(100% - 15vh));
+  }
+  .musicCards {
+    @apply flex flex-wrap md:flex-row w-full justify-center items-center overflow-visible;
+    perspective: 1000px;
+    .musicCard {
+      @apply w-[8rem] h-[13rem]  md:w-[14rem] md:h-[24rem] relative m-3;
+      backface-visibility: hidden;
+      .before {
+        @apply w-full h-full bg-white transition-all duration-700 rounded-md relative shadow-2xl;
+        .imgContainer {
+          @apply w-full h-[45%] relative;
+          .img {
+            @apply w-full h-full relative;
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+            background-blend-mode: screen;
+            .imgShade {
+              @apply w-full h-full absolute top-0 left-0;
+              background: rgba($color: #1e40af, $alpha: 0.2);
+            }
+          }
+          .imgTitle {
+            @apply absolute bottom-4 right-1 md:right-3 w-[80%] md:w-[65%] text-right text-white text-sm md:text-xl overflow-visible font-extralight;
+            box-decoration-break: clone;
+            span {
+              @apply px-2 py-1 break-all;
+              background-image: linear-gradient(to right bottom, rgba(#1e40af, .85), rgba(#60a5fa, .85));
+            }
+          }
+        }
+      }
+      .back {
+        @apply absolute top-0 left-0 bg-white w-full h-full transition-all duration-700 rounded-md;
+        backface-visibility: hidden;
+        transform: rotateY(-180deg);
+        .bgVido {
+          @apply w-full h-full absolute;
+          &Content {
+            @apply w-full h-full;
+            object-fit: cover;
+          }
+        }
+      }
+      &:hover .before {
+        transform: rotateY(180deg)
+      }
+      &:hover .back {
+        transform: rotateY(0deg)
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.partners {
+  @apply mt-10 flex flex-col px-3 py-10 justify-center items-center w-full;
+  > ul {
+    @apply grid gap-[2rem] items-center justify-center;
+    grid-template-columns: repeat(4, 1fr);
+    @media (max-width: 700px) {
+    @apply gap-[2rem];
+    grid-template-columns: repeat(2, 1fr);
+  }
+  }
+}
